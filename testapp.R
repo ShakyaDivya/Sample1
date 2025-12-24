@@ -21,7 +21,7 @@
   
   #---------------DATA PREPARATION--------------------
   
-  region.id <- read.csv("data/prov dist gapa ward id.csv")
+  region.id <- read.csv("../data/prov dist gapa ward id.csv")
   setDT(region.id)
   
   region.id[,distmuni:=dist*100 + gapa]

@@ -51,7 +51,7 @@ funpyrwrapper.x <- function (res1,
     
     }
   
-  # if(iaggre.regs) df1[,region:=iregaggr.name] #need to aggregate
+
   
   
   #color choose ...
