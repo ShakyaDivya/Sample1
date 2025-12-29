@@ -21,7 +21,8 @@
   
   #---------------DATA PREPARATION--------------------
   
-  region.id <- read.csv("../data/prov dist gapa ward id.csv")
+  
+  region.id <- read.csv("prov dist gapa ward id.csv")
   setDT(region.id)
   
   region.id[,distmuni:=dist*100 + gapa]
@@ -60,7 +61,8 @@
                         "Immigrants","Deaths","Absentee","Deaths.Absentee")
   names(measure.vars) <- measure.vars.nm
   names(measure.vars.nm) <- measure.vars
-  scens =c(
+
+    scens =c(
     "Medium", #"n22" 
     "Low", #"n23"
     "High")  #"n24"
@@ -370,15 +372,15 @@ server <- function(input, output, session) {
           
           iscen.code <- c("n22","n23","n24")[grep(i,scens)]
           
-          ifoldername <- grep(iscen.code,dir("../data/output",full.names = T),value = T)
-          # print(ifoldername)
+          ifoldername <- grep(iscen.code,dir(full.names = T),value = T)
+          print(ifoldername)
+          
           
           #n01 #ward
           
           if(input$ward!="All"){
-            inpfile = paste0(ifoldername,"/region",
-                             paste0(iareanum(),"ww"),".feather")
-            
+
+            inpfile = paste0(ifoldername,"/region", paste0(iareanum()),".feather")
             
             
             xxx <- read_feather(inpfile)
